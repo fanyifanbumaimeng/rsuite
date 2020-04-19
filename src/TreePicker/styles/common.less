@@ -18,6 +18,20 @@
   .ReactVirtualized__Grid.ReactVirtualized__List:focus {
     outline: none;
   }
+  &-drag-node-mover {
+    position: absolute;
+    top: -1000px;
+    color: @B800;
+    background: #fff;
+    display: inline-block;
+    margin: 0;
+    padding: 8px 12px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 8px #00000012;
+    z-index: 1060;
+    cursor: move;
+  }
 }
 
 .@{tpns}-node {
@@ -35,22 +49,23 @@
   }
 
   > .@{tpns}-node-label {
+    position: relative;
     margin: 0;
     padding: @picker-tree-node-padding-vertical @picker-tree-node-padding-horizontal;
     //text gap
     padding-left: @picker-tree-arrow-down-width+ @picker-tree-arrow-down-gap+8px;
     display: inline-block;
     cursor: pointer;
-    border-top: 2px solid transparent;
-    border-bottom: 2px solid transparent;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
 
     &::before {
       content: '';
       position: absolute;
       width: @picker-tree-arrow-down-width+ @picker-tree-arrow-down-gap;
-      height: 100%;
+      height: 38px;
       background-color: @picker-tree-bg;
-      top: 0;
+      top: -1px;
       margin-left: -24px;
     }
 
@@ -66,14 +81,46 @@
   &-drag-over {
     background-color: @picker-tree-node-hover-bg;
   }
+  &-dragging {
+    // border: 1px dashed @H500!important;
+  }
+
   &-drag-over-top {
     &.@{tpns}-node-label {
-      border-top: 2px solid @picker-tree-node-active-color;
+      border-top: 1px solid @picker-tree-node-active-color;
+      &::after {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: 11px;
+        width: 0;
+        height: 0;
+        border-left: 6px solid @picker-tree-node-active-color;
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+      }
     }
   }
   &-drag-over-bottom {
     &.@{tpns}-node-label {
-      border-bottom: 2px solid @picker-tree-node-active-color;
+      border-bottom: 1px solid @picker-tree-node-active-color;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 11px;
+        width: 0;
+        height: 0;
+        border-left: 6px solid @picker-tree-node-active-color;
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+      }
+    }
+  }
+
+  &-drag-disabled {
+    &.@{tpns}-node-label {
+      cursor: not-allowed;
     }
   }
 

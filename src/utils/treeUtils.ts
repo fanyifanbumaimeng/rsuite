@@ -9,7 +9,7 @@ import { CheckTreePickerProps } from '../CheckTreePicker/CheckTreePicker.d';
 const SEARCH_BAR_HEIGHT = 48;
 const MENU_PADDING = 12;
 // Tree Node 之间的 间隔
-const TREE_NODE_GAP = 8;
+const TREE_NODE_GAP = 4;
 
 /**
  * 判断当前节点是否应该显示

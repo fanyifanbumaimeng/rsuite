@@ -58,5 +58,6 @@ export const TREE_NODE_ROOT_PADDING = 12;
 export enum TREE_NODE_DROP_POSITION {
   DRAG_OVER = 0, // drag node in tree node
   DRAG_OVER_TOP = 1, // drag node on tree node
-  DRAG_OVER_BOTTOM = 2 // drag node under tree node
+  DRAG_OVER_BOTTOM = 2, // drag node under tree node
+  DRAG_DISABLED = 3
 }
